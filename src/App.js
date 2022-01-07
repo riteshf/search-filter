@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { ChakraProvider, Container, Grid } from "@chakra-ui/react";
+
+import { SearchOptions } from "./components/SearchOptions/SearchOptions";
+import response from "./__data/Shops_attributes_response.json";
+import { FilterProvider } from "./context/FilterContext";
 
 function App() {
+  const options = response.response.data;
+  const [selections, setSelections] = useState({});
+  useEffect(() => {
+    const s = Object.keys(options).reduce((acc, crr) => {
+      acc[crr] = [];
+      return acc;
+    }, {});
+    setSelections(s);
+  }, [options]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+      <Container maxW="container.xl" mt={8}>
+        <Grid templateColumns="1fr 1fr 1fr">
+          <div className="col bg-white">
+            <FilterProvider options={options}>
+              <SearchOptions />
+            </FilterProvider>
+          </div>
+          <div className="col">Column</div>
+          <div className="col">Column</div>
+        </Grid>
+      </Container>
+    </ChakraProvider>
   );
 }
 
