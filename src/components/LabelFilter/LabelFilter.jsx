@@ -8,7 +8,10 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { MdAdd, MdMinimize } from "react-icons/md";
+
 import { StringFilter } from "./StringFilter/StringFilter";
+import { DateFilter } from "./DateFilter/DateFilter";
+import { NumberFilter } from "./NumberFilter/NumberFilter";
 
 export const LabelFilter = ({ data = [] }) => {
   if (data.length === 0) {
@@ -16,7 +19,7 @@ export const LabelFilter = ({ data = [] }) => {
   }
 
   return (
-    <Accordion allowMultiple bgColor="gray.200">
+    <Accordion allowToggle bgColor="gray.200">
       {data.map((labelOption, index) => (
         <AccordionItem key={index}>
           {({ isExpanded }) => (
@@ -37,9 +40,15 @@ export const LabelFilter = ({ data = [] }) => {
                   )}
                 </AccordionButton>
               </h2>
-              <AccordionPanel p={0} bgColor="gray.300">
+              <AccordionPanel p={2} bgColor="gray.300">
                 {labelOption.type === "string" && (
                   <StringFilter labelOption={labelOption} />
+                )}
+                {labelOption.type === "date" && (
+                  <DateFilter labelOption={labelOption} />
+                )}
+                {labelOption.type === "numeric" && (
+                  <NumberFilter labelOption={labelOption} />
                 )}
               </AccordionPanel>
             </>

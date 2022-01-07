@@ -5,6 +5,8 @@ import { SearchOptions } from "./components/SearchOptions/SearchOptions";
 import response from "./__data/Shops_attributes_response.json";
 import { FilterProvider } from "./context/FilterContext";
 
+import "react-datepicker/dist/react-datepicker.css";
+
 function App() {
   const options = response.response.data;
   const [selections, setSelections] = useState({});

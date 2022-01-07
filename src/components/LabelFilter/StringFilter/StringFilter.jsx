@@ -19,7 +19,7 @@ export const StringFilter = ({ labelOption = {} }) => {
   const typeNomenclature = nomanclature[labelOption.type];
   const [select, setSelect] = useState(typeNomenclature[0]);
   return (
-    <InputGroup p={2}>
+    <InputGroup>
       <InputLeftAddon px="0" width="fit-content">
         <Menu>
           <MenuButton
