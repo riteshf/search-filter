@@ -18,7 +18,7 @@ import { FilterContext } from "../../../context/FilterContext";
 export const NumberFilter = ({ labelOption = {} }) => {
   const { nomanclature } = useContext(FilterContext);
   const typeNomenclature = nomanclature[labelOption.type];
-  const [showTooltip, setShowTooltip] = React.useState(false);
+
   const [sliderValue, setSliderValue] = React.useState({
     start_range: 0,
     end_range: 0,
