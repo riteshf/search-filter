@@ -12,15 +12,16 @@ import { MdAdd, MdMinimize } from "react-icons/md";
 import { StringFilter } from "./StringFilter/StringFilter";
 import { DateFilter } from "./DateFilter/DateFilter";
 import { NumberFilter } from "./NumberFilter/NumberFilter";
+import { ValueFilter } from "../ValueFilter/ValueFilter";
 
-export const LabelFilter = ({ data = [] }) => {
-  if (data.length === 0) {
-    return <div />;
+export const LabelFilter = ({ headLabel = "", labels = [], values = {} }) => {
+  if (labels.length === 0) {
+    return <ValueFilter headLabel={headLabel} values={values} />;
   }
 
   return (
-    <Accordion allowToggle bgColor="gray.200">
-      {data.map((labelOption, index) => (
+    <Accordion allowMultiple bgColor="gray.200">
+      {labels.map((labelOption, index) => (
         <AccordionItem key={index}>
           {({ isExpanded }) => (
             <>
@@ -50,6 +51,11 @@ export const LabelFilter = ({ data = [] }) => {
                 {labelOption.type === "numeric" && (
                   <NumberFilter labelOption={labelOption} />
                 )}
+                <ValueFilter
+                  headLabel={headLabel}
+                  labelOption={labelOption}
+                  values={values[labelOption.key]}
+                />
               </AccordionPanel>
             </>
           )}

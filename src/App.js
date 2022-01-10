@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { ChakraProvider, Container, Grid } from "@chakra-ui/react";
 
 import { SearchOptions } from "./components/SearchOptions/SearchOptions";
@@ -9,14 +8,6 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function App() {
   const options = response.response.data;
-  const [selections, setSelections] = useState({});
-  useEffect(() => {
-    const s = Object.keys(options).reduce((acc, crr) => {
-      acc[crr] = [];
-      return acc;
-    }, {});
-    setSelections(s);
-  }, [options]);
   return (
     <ChakraProvider>
       <Container maxW="container.xl" mt={8}>

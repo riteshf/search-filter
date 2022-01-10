@@ -20,18 +20,14 @@ export const StringFilter = ({ labelOption = {} }) => {
   const [select, setSelect] = useState(typeNomenclature[0]);
   return (
     <InputGroup>
-      <InputLeftAddon px="0" width="fit-content">
+      <InputLeftAddon px="0">
         <Menu>
           <MenuButton
             as={Button}
-            rightIcon={
-              <Icon
-                as={FaChevronDown}
-                _focus={{
-                  boxShadow: "none",
-                }}
-              />
-            }
+            rightIcon={<Icon as={FaChevronDown} />}
+            _focus={{
+              boxShadow: "none",
+            }}
           >
             {select.label}
           </MenuButton>

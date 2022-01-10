@@ -8,7 +8,6 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { LabelFilter } from "../LabelFilter/LabelFilter";
-import { ValueFilter } from "../ValueFilter/ValueFilter";
 import { FilterContext } from "../../context/FilterContext";
 
 export const SearchOptions = () => {
@@ -16,7 +15,7 @@ export const SearchOptions = () => {
   const accordianLabels = Object.keys(filterMenu);
 
   return (
-    <Accordion allowToggle bgColor="gray.50">
+    <Accordion allowMultiple bgColor="gray.50">
       {accordianLabels.map((label, index) => (
         <AccordionItem key={index}>
           <h2>
@@ -42,8 +41,11 @@ export const SearchOptions = () => {
             </AccordionButton>
           </h2>
           <AccordionPanel p={2} bgColor="gray.100">
-            <LabelFilter data={filterMenu[label]?.labels} />
-            <ValueFilter data={filterMenu[label]?.values} />
+            <LabelFilter
+              headLabel={label}
+              labels={filterMenu[label]?.labels}
+              values={filterMenu[label]?.values}
+            />
           </AccordionPanel>
         </AccordionItem>
       ))}

@@ -35,6 +35,7 @@ export const NumberFilter = ({ labelOption = {} }) => {
           end_range: end,
         })
       }
+      my={2}
     >
       <RangeSliderTrack bg="red.100">
         <RangeSliderFilledTrack bg="tomato" />
