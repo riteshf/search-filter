@@ -5,6 +5,13 @@ export const FilterProvider = ({ children, options }) => {
   const filterMenu = options.filter_menu;
   const nomanclature = options.common_filter_values;
   const [selections, setSelections] = useState({});
+
+  const clearLabelSelections = (label) => {
+    setSelections({
+      ...selections,
+      [label]: [],
+    });
+  };
   useEffect(() => {
     const s = Object.keys(options).reduce((acc, crr) => {
       acc[crr] = [];
@@ -14,7 +21,9 @@ export const FilterProvider = ({ children, options }) => {
   }, [options]);
 
   return (
-    <FilterContext.Provider value={{ selections, filterMenu, nomanclature }}>
+    <FilterContext.Provider
+      value={{ selections, filterMenu, nomanclature, clearLabelSelections }}
+    >
       {children}
     </FilterContext.Provider>
   );

@@ -15,7 +15,8 @@ import { FilterContext } from "../../context/FilterContext";
 import { MdClose } from "react-icons/md";
 
 export const SearchOptions = () => {
-  const { selections, filterMenu } = useContext(FilterContext);
+  const { selections, filterMenu, clearLabelSelections } =
+    useContext(FilterContext);
   const accordianLabels = Object.keys(filterMenu);
 
   return (
@@ -48,6 +49,8 @@ export const SearchOptions = () => {
                   colorScheme="gray"
                   borderRadius={8}
                   px={2}
+                  cursor="pointer"
+                  onClick={() => clearLabelSelections(label)}
                 >
                   <TagLeftIcon boxSize="12px" as={MdClose} />
                   <TagLabel>CLEAR</TagLabel>
