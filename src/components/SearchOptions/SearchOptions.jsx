@@ -6,9 +6,13 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
+  Tag,
+  TagLeftIcon,
+  TagLabel,
 } from "@chakra-ui/react";
 import { LabelFilter } from "../LabelFilter/LabelFilter";
 import { FilterContext } from "../../context/FilterContext";
+import { MdClose } from "react-icons/md";
 
 export const SearchOptions = () => {
   const { selections, filterMenu } = useContext(FilterContext);
@@ -37,6 +41,18 @@ export const SearchOptions = () => {
               >
                 {label}
               </Box>
+              {selections[label] && selections[label].length > 0 && (
+                <Tag
+                  size="xs"
+                  variant="subtle"
+                  colorScheme="gray"
+                  borderRadius={8}
+                  px={2}
+                >
+                  <TagLeftIcon boxSize="12px" as={MdClose} />
+                  <TagLabel>CLEAR</TagLabel>
+                </Tag>
+              )}
               <AccordionIcon />
             </AccordionButton>
           </h2>
