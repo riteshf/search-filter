@@ -1,7 +1,7 @@
 {
   "name": "search-filter",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "workspaces": [
     "packages/*"
   ],
