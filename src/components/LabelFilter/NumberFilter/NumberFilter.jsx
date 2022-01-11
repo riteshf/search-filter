@@ -1,17 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import {
-  Box,
-  Grid,
   RangeSlider,
   RangeSliderFilledTrack,
   RangeSliderThumb,
   RangeSliderTrack,
-  Slider,
-  SliderThumb,
   Text,
   Tooltip,
 } from "@chakra-ui/react";
-import ReactDatePicker from "react-datepicker";
 
 import { FilterContext } from "../../../context/FilterContext";
 
