@@ -5,6 +5,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "node": ">=14"
+  },
   "dependencies": {
     "@chakra-ui/react": "^1.7.4",
     "@emotion/react": "^11.7.1",
