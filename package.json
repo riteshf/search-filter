@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "engines": {
-    "node": ">=14"
+    "node": "=14"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.7.4",
